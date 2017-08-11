@@ -3,8 +3,6 @@
 #include <string.h>
 
 char string[200];
-int caracteres[200];
-void qual_caractere (char c, int i);
 
 int main(){
 
@@ -16,40 +14,27 @@ int main(){
  while(c!='\n'){
 	scanf("%c",&c);
 	string[i]= c;
-	qual_caractere(c,i);
 	i++;}
- for(i=0;i++;i<199){
-	if(caracteres[i]==0){
-		if(caracteres[i+1]!=0){
+ for(i=0;i<199;i++){
+	if((string[i]>='a'&&string[i]<='z')||(string[i]>='A'&&string[i]<='Z')){
+		if(string[i+1]<'A'||string[i+1]>'z'||(string[i+1]>'Z'&&string[i+1]<'a')){
 			cont++;}
-			    }
-	if(caracteres[i]==1){
-		if(caracteres[i+1]==0 || caracteres[i+1]==1){
-			cont++;}
-		if(caracteres[i+1]==2){
-			if(string[i+1]!='.'){
+	}
+	if(string[i]>='0'&&string[i]<='9'){
+		if(string[i+1]=='.'||string[i+1]==','){
+			if(string[i+2]>='0'&&string[i+2]<='9'){}
+			else{
 				cont++;}
-				      }
-			    }
-		   }
- printf("%s\n",string);
- for(i=0;i++;i<200){
- printf("%d\n",caracteres[i]);}
+		}
+		else if(string[i+1]>='0'&&string[i+1]<='9'){}
+		else{
+			cont++;}
+	}
+			
+ }
+
  printf("%d\n",cont);
  return 0;
 }
-
-void qual_caractere (char c, int i){
-  if(c == '-' || c=='.' || c==',' || c==':' || c==';'){
-	caracteres[i]=2;}
-  if(c==' '||c=='\n'){
-	caracteres[i]=1;}
-  if(c=='0'||c=='1'||c=='2'||c=='3'||c=='4'||c=='5'||c=='6'||c=='7'||c=='8'||c=='9'){
-	caracteres[i]=3;}
-  else{
-	caracteres[i]=0;}
- return;
-}
-				
-
+	
 
